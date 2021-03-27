@@ -28,6 +28,8 @@ namespace GetMan
             this.Controls.Add(_leftPanel);
             this.Controls.Add(_requestTypeRadioButtonSelectPanel);
             this.Controls.Add(_clientPanel);
+
+            _leftPanel.Visible = false; // TODO 
         }
 
         private void OnResize(object sender, EventArgs e)
