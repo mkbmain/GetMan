@@ -1,4 +1,4 @@
-namespace WinApp
+namespace GetMan.Enum
 {
     public enum RequestType
     {
