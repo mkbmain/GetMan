@@ -22,7 +22,7 @@ namespace GetMan.Controls.Tabs
 
         public void Set(string body, string status)
         {
-            string json = body;
+            string json = null;
             try
             {
                 var b = Newtonsoft.Json.JsonConvert.DeserializeObject(body);
@@ -35,7 +35,7 @@ namespace GetMan.Controls.Tabs
             {
             }
 
-            _bodyTextBox.Text = json;
+            _bodyTextBox.Text = json ?? body;
             _result.Text = status;
         }
 
