@@ -8,7 +8,7 @@ using GetMan.Enum;
 
 namespace GetMan.Controls
 {
-    public class RequestBasePanel : Panel
+    public class ClientPanel : Panel
     {
         public RequestType RequestType { private get; set; }
 
@@ -25,7 +25,7 @@ namespace GetMan.Controls
         private readonly ResponseBodyPanel _responsePanel;
         private readonly TabPage _response = new TabPage("Response");
 
-        public RequestBasePanel(Size mainFormSize)
+        public ClientPanel(Size mainFormSize)
         {
             _tabControl.TabPages.Add(_body);
             _tabControl.TabPages.Add(_headers);

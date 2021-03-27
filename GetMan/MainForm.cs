@@ -12,7 +12,7 @@ namespace GetMan
     {
         private readonly RequestTypePanel _requestTypePanel;
         private readonly LeftPanel _leftPanel;
-        private readonly RequestBasePanel _requestBasePanel;
+        private readonly ClientPanel _clientPanel;
 
         public MainForm()
         {
@@ -20,20 +20,20 @@ namespace GetMan
             this.Size = new Size(300, 200);
             _leftPanel = new LeftPanel(this.Size);
             _requestTypePanel = new RequestTypePanel(this.Size);
-            _requestBasePanel = new RequestBasePanel(Size) {Location = new Point(36, 100)};
+            _clientPanel = new ClientPanel(Size) {Location = new Point(36, 100)};
             _requestTypePanel.NewSelectionMade +=
-                (sender, args) => _requestBasePanel.RequestType = (RequestType) sender;
+                (sender, args) => _clientPanel.RequestType = (RequestType) sender;
             this.Resize += OnResize;
             this.Controls.Add(_leftPanel);
             this.Controls.Add(_requestTypePanel);
-            this.Controls.Add(_requestBasePanel);
+            this.Controls.Add(_clientPanel);
         }
 
         private void OnResize(object sender, EventArgs e)
         {
             _requestTypePanel.InnerResize(this.Size);
             _leftPanel.InnerResize(this.Size);
-            _requestBasePanel.InnerResize(this.Size);
+            _clientPanel.InnerResize(this.Size);
         }
 
 
