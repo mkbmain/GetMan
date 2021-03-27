@@ -4,6 +4,7 @@ namespace GetMan.Enum
     {
         Json=0,
         Xml=1,
-        Raw=2
+        Raw=2,
+        None =4
     }
 }

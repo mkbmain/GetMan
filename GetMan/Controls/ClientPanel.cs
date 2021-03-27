@@ -65,6 +65,10 @@ namespace GetMan.Controls
                     case ContentType.Raw:
                         _headerTab.UpdateOrInsert("ContentType", "", _headers.Size);
                         break;
+                    
+                    case ContentType.None:
+                        _headerTab.Remove("ContentType", _headers.Size);
+                        break;
                     default:
                         throw new ArgumentOutOfRangeException();
                 }

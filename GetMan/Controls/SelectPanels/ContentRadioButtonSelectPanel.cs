@@ -5,7 +5,7 @@ namespace GetMan.Controls.SelectPanels
 {
     public class ContentRadioButtonSelectPanel : BaseRadioButtonSelectPanel<ContentType>
     {
-        public ContentRadioButtonSelectPanel(Size mainFormSize) : base(mainFormSize,ContentType.Raw , ContentTypeMappings.DisplayToEnum, "ContentTypes")
+        public ContentRadioButtonSelectPanel(Size mainFormSize) : base(mainFormSize,ContentType.None , ContentTypeMappings.DisplayToEnum, "ContentTypes")
         {
         }
     }

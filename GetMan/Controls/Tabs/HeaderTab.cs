@@ -37,6 +37,14 @@ namespace GetMan.Controls.Tabs
 
             InnerResize(tabSize);
         }
+        
+        public void Remove(string headerName,Size tabSize)
+        {
+            var header = _headerPairs.FirstOrDefault(f =>
+                f.header.Text == headerName);
+            _headerPairs.Remove(header);
+            InnerResize(tabSize);
+        }
 
         public string[][] GetAllHeaderValues()
         {
