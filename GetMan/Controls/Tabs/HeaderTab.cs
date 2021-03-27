@@ -7,15 +7,15 @@ namespace GetMan.Controls.Tabs
 {
     public class HeaderView : Panel
     {
-        private List<(TextBox header, TextBox value)> _headerPairs = new List<(TextBox, TextBox)>();
-        public Panel _displayPanel = new Panel();
+        private readonly List<(TextBox header, TextBox value)> _headerPairs = new List<(TextBox, TextBox)>();
+        private Panel _displayPanel = new Panel();
         private Button _addRow = new Button {Text = "+"};
-        private Size containerSizeLast;
+        private Size _containerSizeLast;
 
         public HeaderView(Size containerSize)
         {
             AutoScroll = true;
-            _addRow.Click += (sender, args) => UpdateOrInsert("", "", containerSizeLast);
+            _addRow.Click += (sender, args) => UpdateOrInsert("", "", _containerSizeLast);
             this.Controls.Add(_displayPanel);
             UpdateOrInsert("", "", containerSize);
         }
@@ -92,7 +92,7 @@ namespace GetMan.Controls.Tabs
             _addRow.Top = top - 18;
             _addRow.BringToFront();
             _addRow.Left = _headerPairs.Last().value.Right + 5;
-            containerSizeLast = tabSize;
+            _containerSizeLast = tabSize;
         }
     }
 }

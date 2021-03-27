@@ -24,7 +24,7 @@ namespace GetMan.Controls.SelectPanels
             }
         }
 
-        public BaseRadioButtonSelectPanel(Size mainFormSize, T enumType,
+        protected BaseRadioButtonSelectPanel(Size mainFormSize, T enumType,
             IEnumerable<(string title, string enumMapValue)> optionLabels, string optionSelectionTitle)
         {
             _buttonLabel = optionLabels.ToList();

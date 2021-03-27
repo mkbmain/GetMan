@@ -8,7 +8,7 @@ namespace GetMan.Controls.Tabs
 
         private readonly TextBox _bodyTextBox = new TextBox {Location = new Point(1, 35), AutoSize = false, Multiline = true};
         private readonly Label _result = new Label {Location = new Point(1, 1), AutoSize = true};
-        public ResponseBodyTab(Size tabArea) : base(tabArea)
+        public ResponseBodyTab(Size tabArea) 
         {
             this.Controls.Add(_bodyTextBox);
             this.Controls.Add(_result);
@@ -24,7 +24,7 @@ namespace GetMan.Controls.Tabs
         
         
 
-        public  override void InnerResize(Size tabArea)
+        public sealed override void InnerResize(Size tabArea)
         {
             _bodyTextBox.Location = new Point(1, _result.Bottom + 15);
             _bodyTextBox.Size = new Size(tabArea.Width-10, tabArea.Height-_result.Height-15);

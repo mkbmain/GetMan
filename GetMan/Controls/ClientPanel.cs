@@ -20,7 +20,7 @@ namespace GetMan.Controls
         private readonly TabControl _tabControl = new TabControl();
         private readonly Button _runButton = new Button {Text = "Run",};
         private readonly TabPage _body = new TabPage("Body");
-        private readonly RequestBodyTab _requestBodyTabPageConent;
+        private readonly RequestBodyTab _requestBodyTabPage;
         private readonly TabPage _headers = new TabPage("Headers");
         private readonly HeaderView _headerTab;
         private readonly ResponseBodyTab _responseTab;
@@ -35,10 +35,10 @@ namespace GetMan.Controls
             _headerTab = new HeaderView(_headers.Size);
             Location = new Point(1, 1);
             BorderStyle = BorderStyle.None;
-            _requestBodyTabPageConent = new RequestBodyTab(_body.Size);
-            _requestBodyTabPageConent.ContentTypeChanged += (sender, args) => ContentType = (ContentType) sender;
+            _requestBodyTabPage = new RequestBodyTab(_body.Size);
+            _requestBodyTabPage.ContentTypeChanged += (sender, args) => ContentType = (ContentType) sender;
             InnerResize(mainFormSize);
-            _body.Controls.Add(_requestBodyTabPageConent);
+            _body.Controls.Add(_requestBodyTabPage);
             _headers.Controls.Add(_headerTab);
             _response.Controls.Add(_responseTab);
             Controls.Add(_urlTextBox);
@@ -63,7 +63,7 @@ namespace GetMan.Controls
                             _headers.Size, false);
                         break;
                     case ContentType.Raw:
-                        _headerTab.UpdateOrInsert("ContentType", "", _headers.Size, true);
+                        _headerTab.UpdateOrInsert("ContentType", "", _headers.Size);
                         break;
                     default:
                         throw new ArgumentOutOfRangeException();
@@ -103,7 +103,7 @@ namespace GetMan.Controls
                 case RequestType.Put:
                 case RequestType.Patch:
                 case RequestType.Delete:
-                    var body = _requestBodyTabPageConent.GetContent();
+                    var body = _requestBodyTabPage.GetContent();
                     if (!string.IsNullOrWhiteSpace(body))
                     {
                         using (var sw = new StreamWriter(request.GetRequestStream()))
@@ -112,8 +112,6 @@ namespace GetMan.Controls
                         }
                     }
 
-                    break;
-                default:
                     break;
             }
 
@@ -141,7 +139,7 @@ namespace GetMan.Controls
             _tabControl.Size = new Size(Size.Width - 35, Height - _urlTextBox.Height - 28);
             _urlTextBox.Size = new Size(_tabControl.Width - _runButton.Width, _urlTextBox.Height);
             _runButton.Location = new Point(_urlTextBox.Right + 5, _urlTextBox.Top);
-            _requestBodyTabPageConent.InnerResize(_body.Size);
+            _requestBodyTabPage.InnerResize(_body.Size);
             _headerTab.InnerResize(_headers.Size);
             _responseTab.InnerResize(_response.Size);
         }

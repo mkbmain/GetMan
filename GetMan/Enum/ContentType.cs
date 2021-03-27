@@ -2,8 +2,8 @@ namespace GetMan.Enum
 {
     public enum ContentType
     {
-        Json,
-        Xml,
-        Raw
+        Json=0,
+        Xml=1,
+        Raw=2
     }
 }

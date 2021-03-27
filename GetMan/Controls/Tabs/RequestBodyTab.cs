@@ -11,7 +11,7 @@ namespace GetMan.Controls.Tabs
         private readonly TextBox _bodyTextBox = new TextBox {Location = new Point(1, 35), AutoSize = false, Multiline = true};
 
         private readonly ContentRadioButtonSelectPanel _contentRadioButtonSelectPanel;
-        public RequestBodyTab(Size tabArea) : base(tabArea)
+        public RequestBodyTab(Size tabArea)
         {
             _contentRadioButtonSelectPanel = new ContentRadioButtonSelectPanel(tabArea)
             {
@@ -31,7 +31,7 @@ namespace GetMan.Controls.Tabs
             return _bodyTextBox.Text;
         }
 
-        public  override void InnerResize(Size tabArea)
+        public sealed override void InnerResize(Size tabArea)
         {
             _contentRadioButtonSelectPanel.InnerResize(tabArea);
             _bodyTextBox.Location = new Point(1, _contentRadioButtonSelectPanel.Bottom + 15);
