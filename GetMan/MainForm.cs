@@ -16,11 +16,11 @@ namespace GetMan
 
         public MainForm()
         {
-            this.Size = new Size(640, 480);
+            this.Size = new Size(300, 200);
             _leftPanel = new LeftPanel(this.Size);
             _requestTypePanel = new RequestTypePanel(this.Size);
             _requestBasePanel = new RequestBasePanel(Size) {Location = new Point(36, 100)};
-            _requestTypePanel.RequestTypeChange +=
+            _requestTypePanel.NewSelectionMade +=
                 (sender, args) => _requestBasePanel.RequestType = (RequestType) sender;
             this.Resize += OnResize;
             this.Controls.Add(_leftPanel);
