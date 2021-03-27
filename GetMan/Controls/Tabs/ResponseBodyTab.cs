@@ -1,15 +1,14 @@
-using System;
 using System.Drawing;
 using System.Windows.Forms;
 
-namespace GetMan.Controls
+namespace GetMan.Controls.Tabs
 {
-    public class ResponseBodyPanel : BaseTabPanel
+    public class ResponseBodyTab : BaseTabPanel
     {
 
         private readonly TextBox _bodyTextBox = new TextBox {Location = new Point(1, 35), AutoSize = false, Multiline = true};
         private readonly Label _result = new Label {Location = new Point(1, 1), AutoSize = true};
-        public ResponseBodyPanel(Size tabArea) : base(tabArea)
+        public ResponseBodyTab(Size tabArea) : base(tabArea)
         {
             this.Controls.Add(_bodyTextBox);
             this.Controls.Add(_result);

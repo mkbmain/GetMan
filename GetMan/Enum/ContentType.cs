@@ -1,4 +1,4 @@
-namespace GetMan.Controls
+namespace GetMan.Enum
 {
     public enum ContentType
     {

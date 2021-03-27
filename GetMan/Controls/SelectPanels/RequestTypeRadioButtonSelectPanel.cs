@@ -2,11 +2,11 @@ using System.Collections.Generic;
 using System.Drawing;
 using GetMan.Enum;
 
-namespace GetMan.Controls
+namespace GetMan.Controls.SelectPanels
 {
-    public class RequestTypePanel : FloatingRadioButtonBox<RequestType>
+    public class RequestTypeRadioButtonSelectPanel : BaseRadioButtonSelectPanel<RequestType>
     {
-        public RequestTypePanel(Size mainFormSize, RequestType enumType = RequestType.Get) : base(mainFormSize,
+        public RequestTypeRadioButtonSelectPanel(Size mainFormSize, RequestType enumType = RequestType.Get) : base(mainFormSize,
             enumType,
             new List<(string, string)>
             {

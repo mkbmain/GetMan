@@ -4,6 +4,7 @@ using System.IO;
 using System.Linq;
 using System.Net;
 using System.Windows.Forms;
+using GetMan.Controls.Tabs;
 using GetMan.Enum;
 
 namespace GetMan.Controls
@@ -19,10 +20,10 @@ namespace GetMan.Controls
         private readonly TabControl _tabControl = new TabControl();
         private readonly Button _runButton = new Button {Text = "Run",};
         private readonly TabPage _body = new TabPage("Body");
-        private readonly RequestBodyPanel _requestBodyTabPageConent;
+        private readonly RequestBodyTab _requestBodyTabPageConent;
         private readonly TabPage _headers = new TabPage("Headers");
         private readonly HeaderView _headerTab;
-        private readonly ResponseBodyPanel _responsePanel;
+        private readonly ResponseBodyTab _responseTab;
         private readonly TabPage _response = new TabPage("Response");
 
         public ClientPanel(Size mainFormSize)
@@ -30,16 +31,16 @@ namespace GetMan.Controls
             _tabControl.TabPages.Add(_body);
             _tabControl.TabPages.Add(_headers);
             _tabControl.TabPages.Add(_response);
-            _responsePanel = new ResponseBodyPanel(_response.Size);
+            _responseTab = new ResponseBodyTab(_response.Size);
             _headerTab = new HeaderView(_headers.Size);
             Location = new Point(1, 1);
             BorderStyle = BorderStyle.None;
-            _requestBodyTabPageConent = new RequestBodyPanel(_body.Size);
+            _requestBodyTabPageConent = new RequestBodyTab(_body.Size);
             _requestBodyTabPageConent.ContentTypeChanged += (sender, args) => ContentType = (ContentType) sender;
             InnerResize(mainFormSize);
             _body.Controls.Add(_requestBodyTabPageConent);
             _headers.Controls.Add(_headerTab);
-            _response.Controls.Add(_responsePanel);
+            _response.Controls.Add(_responseTab);
             Controls.Add(_urlTextBox);
             Controls.Add(_runButton);
             Controls.Add(_tabControl);
@@ -129,7 +130,7 @@ namespace GetMan.Controls
                 }
             }
 
-            _responsePanel.Set(responseString, $"status : {(int) response.StatusCode}({response.StatusCode.ToString()})");
+            _responseTab.Set(responseString, $"status : {(int) response.StatusCode}({response.StatusCode.ToString()})");
 
             _tabControl.SelectedTab = _response;
         }
@@ -142,7 +143,7 @@ namespace GetMan.Controls
             _runButton.Location = new Point(_urlTextBox.Right + 5, _urlTextBox.Top);
             _requestBodyTabPageConent.InnerResize(_body.Size);
             _headerTab.InnerResize(_headers.Size);
-            _responsePanel.InnerResize(_response.Size);
+            _responseTab.InnerResize(_response.Size);
         }
     }
 }

@@ -3,7 +3,7 @@ using System.Drawing;
 using System.Linq;
 using System.Windows.Forms;
 
-namespace GetMan.Controls
+namespace GetMan.Controls.Tabs
 {
     public class HeaderView : Panel
     {

@@ -4,9 +4,9 @@ using System.Drawing;
 using System.Linq;
 using System.Windows.Forms;
 
-namespace GetMan.Controls
+namespace GetMan.Controls.SelectPanels
 {
-    public abstract class FloatingRadioButtonBox<T> : Panel where T : System.Enum
+    public abstract class BaseRadioButtonSelectPanel<T> : Panel where T : System.Enum
     {
         public event EventHandler NewSelectionMade;
         private T _enumType;
@@ -24,7 +24,7 @@ namespace GetMan.Controls
             }
         }
 
-        public FloatingRadioButtonBox(Size mainFormSize, T enumType,
+        public BaseRadioButtonSelectPanel(Size mainFormSize, T enumType,
             IEnumerable<(string title, string enumMapValue)> optionLabels, string optionSelectionTitle)
         {
             _buttonLabel = optionLabels.ToList();

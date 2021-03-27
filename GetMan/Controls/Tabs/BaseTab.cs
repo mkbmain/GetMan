@@ -1,7 +1,7 @@
 using System.Drawing;
 using System.Windows.Forms;
 
-namespace GetMan.Controls
+namespace GetMan.Controls.Tabs
 {
     public abstract class BaseTabPanel : Panel
     {
