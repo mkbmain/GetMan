@@ -16,6 +16,7 @@ namespace GetMan
 
         public MainForm()
         {
+            this.Text = "GET MAN";
             this.Size = new Size(300, 200);
             _leftPanel = new LeftPanel(this.Size);
             _requestTypePanel = new RequestTypePanel(this.Size);

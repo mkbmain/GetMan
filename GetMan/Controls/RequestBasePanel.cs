@@ -119,7 +119,6 @@ namespace GetMan.Controls
 
             var response = (HttpWebResponse) request.GetResponse();
             string responseString = "";
-            ;
 
             Stream stream = response.GetResponseStream();
             if (stream != null)
@@ -130,7 +129,7 @@ namespace GetMan.Controls
                 }
             }
 
-            _responsePanel.Set(responseString, response.StatusCode.ToString());
+            _responsePanel.Set(responseString, $"status : {(int) response.StatusCode}({response.StatusCode.ToString()})");
 
             _tabControl.SelectedTab = _response;
         }
