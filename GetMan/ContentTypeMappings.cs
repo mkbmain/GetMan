@@ -1,6 +1,6 @@
 using System.Collections.Generic;
 
-namespace GetMan.Controls
+namespace GetMan
 {
     public class ContentTypeMappings
     {
@@ -8,9 +8,9 @@ namespace GetMan.Controls
             new List<(string Display, string EnumMap)>()
                 {("Json", "Json"), ("Xml", "Xml"),("Raw","Raw")};
         
-        public static List<(string Display, string EnumMap)> EnumToAction =
+        public static List<(string Action, string EnumMap)> EnumToAction =
             new List<(string Action, string EnumMap)>()
-                {("application/json", "Json"), ("Xml", "text/xml"),("","Raw")};
+                {("application/json", "Json"), ( "text/xml","Xml"),("","Raw")};
 
 
     }

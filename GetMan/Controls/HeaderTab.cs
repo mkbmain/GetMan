@@ -28,6 +28,12 @@ namespace GetMan.Controls
             {
                 _headerPairs.Add((new TextBox {Text = headerName,ReadOnly = !editable}, new TextBox {Text = value,ReadOnly = !editable}));
             }
+            else
+            {
+                header.value.Text = value;
+                header.header.ReadOnly = !editable;
+                header.value.ReadOnly = !editable;
+            }
 
             InnerResize(tabSize);
         }

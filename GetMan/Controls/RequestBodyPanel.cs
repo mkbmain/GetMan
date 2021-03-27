@@ -22,6 +22,12 @@ namespace GetMan.Controls
             this.Controls.Add(_contentSelectPanel);
             this.Controls.Add(_bodyTextBox);
             InnerResize(tabArea);
+            _bodyTextBox.ScrollBars = ScrollBars.Both;
+        }
+
+        public string GetContent()
+        {
+            return _bodyTextBox.Text;
         }
 
         public  override void InnerResize(Size tabArea)
