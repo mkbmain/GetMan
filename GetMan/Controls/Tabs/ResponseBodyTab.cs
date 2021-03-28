@@ -31,7 +31,7 @@ namespace GetMan.Controls.Tabs
                     json = Newtonsoft.Json.JsonConvert.SerializeObject(b, Formatting.Indented);
                 }
             }
-            catch (Exception e)
+            catch (Exception)
             {
             }
 

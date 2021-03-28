@@ -46,7 +46,7 @@ namespace GetMan.Controls.Tabs
             InnerResize(tabSize);
         }
 
-        public string[][] GetAllHeaderValues()
+        public IEnumerable<string[]> GetAllHeaderValues()
         {
             return  _headerPairs
                 .Where(f=> !string.IsNullOrWhiteSpace(f.header.Text) && !string.IsNullOrWhiteSpace(f.value.Text))
